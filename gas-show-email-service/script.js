@@ -37,6 +37,9 @@ function buildAddOn(e) {
     "mtasv.net": "Postmark",
     "mailchimp": "Mailchimp",
     "zendesk": "Zendesk",
+    "marketo": "Marketo",
+    "exacttarget.com": "Account Engagement (Pardot)",
+    "hubspot.com": "HubSpot",
     "shopifyemail.com": "Shopify",
     "cuenote": "Cuenote",
     "hcm-nc.jp": "ラクス",
@@ -44,6 +47,7 @@ function buildAddOn(e) {
     "willap.jp": "WiLL Mail",
     "phm-brainpad.jp": "PHM (ブレインパッド)",
     "repica.jp": "アララ",
+    "shanon-services.com": "SHANNON MARKETING PLATFORM",
   };
   var identifiedServices = [];
   // SendGrid detection
