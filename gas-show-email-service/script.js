@@ -12,12 +12,22 @@ function buildAddOn(e) {
     .setText(messageIdHeader);
   midSection.addWidget(textParagraph);
 
+  // Extracting header from raw content
   var rawContent = message.getRawContent();
-  var rawSection = CardService.newCardSection()
-    .setHeader("Raw");
+  // Finding the end of the header section
+  var headerEndIndex = rawContent.indexOf("\r\n\r\n"); // RFC 2822 standard
+  if (headerEndIndex === -1) {
+    headerEndIndex = rawContent.indexOf("\n\n"); // Fallback for non-standard formats
+  }
+  var headerContent = rawContent;
+  if (headerEndIndex !== -1) {
+    headerContent = rawContent.substring(0, headerEndIndex);
+  }
+  var headersSection = CardService.newCardSection()
+    .setHeader("Headers");
   var textParagraph = CardService.newTextParagraph()
-    .setText(rawContent);
-  rawSection.addWidget(textParagraph);
+    .setText(headerContent);
+    headersSection.addWidget(textParagraph);
 
   // Email service analysis section
   var emailServices = {
@@ -25,12 +35,15 @@ function buildAddOn(e) {
     "sparkpost": "SparkPost",
     "mailgun": "Mailgun",
     "mtasv.net": "Postmark",
+    "mailchimp": "Mailchimp",
+    "zendesk": "Zendesk",
     "shopifyemail.com": "Shopify",
     "cuenote": "Cuenote",
     "hcm-nc.jp": "ラクス",
     "mpse.jp": "mpse.jp (EmberPoint)",
     "willap.jp": "WiLL Mail",
-    "phm-brainpad.jp": "PHM (ブレインパッド)"
+    "phm-brainpad.jp": "PHM (ブレインパッド)",
+    "repica.jp": "アララ",
   };
   var identifiedServices = [];
   // SendGrid detection
@@ -60,7 +73,7 @@ function buildAddOn(e) {
   var card = CardService.newCardBuilder()
       .addSection(serviceSection)
       .addSection(unsubscribeSection)
-      .addSection(rawSection)
+      .addSection(headersSection)
       .build();
 
   return [card];
