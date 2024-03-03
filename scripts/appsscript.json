@@ -1,0 +1,21 @@
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {},
+  "gmail": {
+    "contextualTriggers": [
+      {
+        "unconditional": {},
+        "onTriggerFunction": "buildAddOn"
+      }
+    ],
+    "name": "HeaderQuickLook",
+    "logoUrl": "https://www.gstatic.com/images/icons/material/system/1x/subheader_black_48dp.png",
+    "primaryColor": "#4285F4",
+    "secondaryColor": "#4285F4"
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/gmail.addons.execute",
+    "https://www.googleapis.com/auth/gmail.readonly"
+  ],
+  "runtimeVersion": "V8"
+}
