@@ -42,6 +42,7 @@ function buildAddOn(e) {
     "exacttarget.com": "Account Engagement (Pardot)",
     "hubspot.com": "HubSpot",
     "shopifyemail.com": "Shopify",
+    "klaviyomail.com": "Klaviyo",
     "cuenote": "Cuenote",
     "hcm-nc.jp": "ラクス",
     "mpse.jp": "mpse.jp (EmberPoint)",
