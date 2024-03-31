@@ -54,11 +54,11 @@ function buildAddOn(e) {
   };
   var identifiedServices = [];
   // SendGrid detection
-  if (rawContent.includes("sendgrid.info") || rawContent.includes("sendgrid.net") || rawContent.includes("geopod-ismtpd")) {
+  if (headerContent.includes("sendgrid.info") || headerContent.includes("sendgrid.net") || headerContent.includes("geopod-ismtpd")) {
     identifiedServices.push("SendGrid");
   }
   for (var key in emailServices) {
-    if (rawContent.indexOf(key) !== -1) {
+    if (headerContent.indexOf(key) !== -1) {
       identifiedServices.push(emailServices[key]);
     }
   }
